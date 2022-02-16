@@ -7,13 +7,10 @@ const Events = require("./routes/event");
 require("dotenv").config();
 
 //mongodb connection
-mongoose.connect(
-  "mongodb+srv://minks:minks@cluster0.93wim.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGO, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const app = express();
 const port = process.env.PORT || 4000;
